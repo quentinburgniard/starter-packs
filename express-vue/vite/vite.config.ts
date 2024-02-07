@@ -9,6 +9,9 @@ export default defineConfig({
     emptyOutDir: true,
     outDir: '../public',
     rollupOptions: {
+      input: [
+        ''
+      ],
       output: {
         assetFileNames: '[name].[ext]',
         chunkFileNames: '[name].js',

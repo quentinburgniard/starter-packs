@@ -1,0 +1,15 @@
+{
+  "name": "starter-pack-html",
+  "version": "1.0.0",
+  "description": "Minimal setups to start a HTML project in minutes",
+  "scripts": {
+    "build": "sass -s compressed --no-source-map ./scss:./public/css",
+    "dev": "sass -w ./scss:public/css"
+  },
+  "devDependencies": {
+    "@webpack-cli/generators": "^3.0.7",
+    "sass": "^1.70.0",
+    "typescript": "^5.3.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
