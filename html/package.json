@@ -1,18 +1,20 @@
 {
-  "name": "my-webpack-project",
+  "name": "starter-pack-html",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Minimal setup to start a HTML project in minutes",
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
-    "dev": "sass -w ./scss:public/css",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch"
+    "build": "webpack --mode=production --node-env=production && cp index.html dist/",
+    "watch": "webpack --mode=development --watch"
   },
   "devDependencies": {
-    "@webpack-cli/generators": "^3.0.7",
+    "css-loader": "^6.10.0",
+    "mini-css-extract-plugin": "^2.8.0",
     "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
-    "webpack-cli": "^5.1.4"
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "workbox-webpack-plugin": "^7.0.0"
   }
 }
