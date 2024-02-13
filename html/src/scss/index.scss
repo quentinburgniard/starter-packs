@@ -1,4 +1,3 @@
-html {
-  background-color: red;
-  margin: 20em
-}
+@import "bootstrap/scss/bootstrap-grid";
+@import "bootstrap/scss/bootstrap-reboot";
+@import "bootstrap/scss/bootstrap-utilities";

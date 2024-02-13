@@ -1,46 +1,54 @@
 const path = require('path');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const isProduction = process.env.NODE_ENV == 'production';
+
 const config = {
-  entry: './src/ts/index.ts',
-  output: {
-    clean: true,
-    path: path.resolve(__dirname, 'dist/js'),
-  },
-  plugins: [
-    new MiniCssExtractPlugin(),
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: ['/node_modules/'],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
-        exclude: ['/node_modules/'],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
-      },
+    entry: './src/ts/index.ts',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/[name].js',
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+        }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+        }),
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
-  },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/i,
+                loader: 'ts-loader',
+                exclude: ['/node_modules/'],
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader',
+                ],
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+                type: 'asset',
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+    },
 };
 
 module.exports = () => {
-  if (config.mode == 'production') {
-    config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
-  }
-  return config;
+    if (isProduction) {
+        config.mode = 'production'; 
+    } else {
+        config.mode = 'development';
+    }
+    return config;
 };
