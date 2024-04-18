@@ -1,0 +1,27 @@
+version: "3"
+
+name: drupal-starter-pack
+
+services:
+  db:
+    image: mariadb:11
+    volumes:
+      - db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+
+  drupal:
+    build: ./
+    user: www-data:www-data
+    #volumes:
+    #  - ./sites:/opt/drupal/web/sites
+    ports:
+      - 80:80
+    restart: always
+
+volumes:
+  db:
