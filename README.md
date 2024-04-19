@@ -2,8 +2,14 @@
 Minimal setups to start a project in minutes
 ## Checklist
 All setups should meet this criteria
+- [x] CSS: sort properties
+- [x] CSS: use relative unit
 - [x] Shorter as possible
 - [x] Accessible
+
+### How to sort CSS properties?
+`postcss --config ~/Documents/starter-packs --no-map -r ./*.scss`
+
 ## Setups
 ### [Express.js](https://github.com/quentinburgniard/starter-packs/tree/main/express)
 Single file to start an Express.js
