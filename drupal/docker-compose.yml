@@ -18,7 +18,7 @@ services:
     build: ./
     user: www-data:www-data
     volumes:
-      - ./theme:/opt/drupal/web/theme
+      - ./theme:/opt/drupal/web/themes/custom/theme
     ports:
       - 80:80
     restart: always
