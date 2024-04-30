@@ -15,6 +15,10 @@ All setups should meet this criteria
 
 `docker run --name phpmyadmin -e PMA_ARBITRARY=1 -p 8888:80 phpmyadmin:5 && docker network connect <NETWORK> phpmyadmin`
 
+### How to optimize SVG files?
+
+`svgo -f path/to/directory_with_svgs -o path/to/output_directory`
+
 ## Setups
 ### [Express.js](https://github.com/quentinburgniard/starter-packs/tree/main/express)
 Single file to start an Express.js
