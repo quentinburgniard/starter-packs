@@ -13,7 +13,7 @@ services:
       MYSQL_PASSWORD: $DB_PASSWORD
 
   drupal:
-    build: ./
+    build: .
     user: www-data:www-data
     volumes:
       - ./theme:/opt/drupal/web/themes/custom/theme

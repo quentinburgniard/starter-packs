@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=3, width=device-width"/>
-        <meta name="theme-color" content="#AE9090"/>
-        <title>HTML Starter Pack</title>
-    </head>
-    <body>
-        <div class="container">
-            <h1>HTML Starter Pack</h1>
-        </div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, minimum-scale=1, maximum-scale=3, width=device-width"
+    />
+    <meta name="theme-color" content="#AE9090" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <%= htmlWebpackPlugin.tags.headTags %>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= htmlWebpackPlugin.options.title %></h1>
+    </div>
+  </body>
 </html>
